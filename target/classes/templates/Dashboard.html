@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadrao}">
+
+<head>
+	<title>CheckBoxs Thymeleaf 3.0.10 Superior</title>
+<!-- 	    <link th:href="@{/dist/css/seuCSS.min.css}" rel="stylesheet"> -->
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+	    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/vendors/mdb/dist/css/mdb.min.css}">
+</head>
+
+<section layout:fragment="conteudo">
+
+<form th:action="@{/}" th:object="${animal}" method="POST">
+
+	<h1>ANIMAL</h1>
+    
+    <div class="form-check mb-4">
+        <input type="checkbox" class="form-check-input" id="checkbox" th:field="*{isQuadrupede}" th:value="SIM">
+        <label class="form-check-label" for="checkbox">Ele tem Quatro Patas?</label>
+    </div>
+        
+    <!-- Default unchecked -->
+<div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" th:field="*{isVoa}" th:value="SIM">
+    <label class="custom-control-label" for="defaultUnchecked">ele voa?</label>
+</div>
+    
+    	<button class="btn btn-sm btn-primary" type="submit" >Salvar</button>
+	    
+</form>
+
+    
+</section>
+
+<th:block layout:fragment="javascript-extra">
+<!-- 	<script th:src="@{/dist/js/seuscript.js}"></script> -->
+<script th:src="@{/vendors/mdb/dist/js/mdb.min.js}"></script>
+<script>
+
+
+$(document).ready(
+		function () {
+
+	$('.mdb-select').materialSelect();
+
+});
+
+
+</script>
+</th:block>
+
+</html>
